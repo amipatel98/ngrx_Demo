@@ -1,0 +1,21 @@
+<div>
+  <input type="text" placeholder="Name" #name><br/><br/>
+  <input type="text" placeholder="Contact" #contact><br/><br/>
+  <button (click)="addTutorial(name.value,contact.value)">Add</button>
+  
+</div><br/>
+<div>
+  <table border="1">
+    <tr>
+      <td>Name</td>
+      <td>Contact</td>
+    </tr>
+    <tr *ngFor = "let tutorial of tutorials | async let i = index;">
+      <td>{{tutorial.name}}</td>
+      <td>{{tutorial.contact}}</td>
+      <td><button type="submit" (click)="delete(i)">Delete</button></td>
+      <td><button type="submit" (click)="update(name.value,contact.value,i)">Update</button></td>    
+      
+    </tr>
+  </table>
+</div>
